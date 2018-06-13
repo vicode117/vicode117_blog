@@ -1,0 +1,90 @@
+article, aside, figure, figcaption, footer, header, main, nav, section,
+summary {
+    display: block;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    /*color: #552800;*/
+}
+
+header {
+    background-color: black;
+    border: thick #336699 solid;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0px;
+    color: orange;
+    font-size: xx-large;
+}
+
+header .introduce {
+    margin: 0px;
+    font-weight: bold;
+    color: greenyellow;
+}
+
+
+
+
+aside.NavSidebar {
+    position: absolute;
+    top: 120px;
+    left: 0px;
+    padding: 5px 15px 0px 15px;
+    width: 70%;
+    min-height: 150%;
+    background-color: #ffee00;
+    font-size: small;
+}
+
+.eassyTitle {
+
+}
+
+nav.NavLink {
+    position: absolute;
+    top: 120px;
+    left: 75%;
+    padding: 5px 15px 0px 15px;
+    width: 25%;
+    min-height: 150%;
+    background-color: rgb(148, 227, 247);
+    font-size: small;    
+}
+
+.figure1 {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.figure1 p {
+    font-size: small;
+    font-style: italic;
+    margin: 0px;
+    border: 0px;
+    text-align: left;
+}
+
+
+
+footer {
+    position: relative;
+    top: 160%;
+
+}
+
+footer a {
+    text-align: center;
+    font-size: 120%;
+}
+
+a {text-decoration : none} 
+a:link { color: black;}
+a:visited {color: black;}
+a:hover { color: black; font-size: 150%;}
