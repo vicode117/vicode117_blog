@@ -55,7 +55,7 @@ aside.NavSidebar {
     background-size:40px 60px;
     font-size: small;
 
-    border-radius: 50% / 50%;
+    border-radius: 12% / 8%;
 }
 
 aside h2 {
@@ -84,7 +84,7 @@ nav.NavLink {
     background-size:110px 200px;
     background-repeat:repeat-x;
     font-size: small;
-    border-radius: 5% / 5%;     
+    border-radius: 2% / 1%;     
 }
 
 .figure1 {
