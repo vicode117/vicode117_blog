@@ -1,0 +1,139 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body{ background: rgb(184, 184, 184); }
+
+li { list-style: none;}
+
+header h1{
+    color: orange;
+    font-size: 4vmin;
+    position: absolute;
+    width: 100%;
+    height: 60%
+    
+}
+
+header a{ text-decoration: none;}
+
+#introduce {
+    font-size: 3vmin;
+    color: greenyellow;
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    height: 33%
+}
+
+header {
+    background-color: black;
+    border: 5px solid #336699;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 10%;
+}
+
+.imgSet img{ width: 100%; height: 100%; }
+
+#img_a {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 24%;
+    height: 28%;
+    border: 5px solid #336699; 
+}
+
+#img_b {
+    position: absolute;
+    top: 15%;
+    left: 38%;
+    width: 24%;
+    height: 28%;
+    border: 5px solid #336699;
+}
+
+#img_c {
+    position: absolute;
+    top: 15%;
+    left: 71%;
+    width: 24%;
+    height: 28%;
+    border: 5px solid #336699;
+}
+
+#img_d {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    width: 24%;
+    height: 28%;
+    border: 5px solid #336699;
+}
+#img_e {
+    position: absolute;
+    top: 55%;
+    left: 38%;
+    width: 24%;
+    height: 28%;
+    border: 5px solid #336699;
+}
+#img_f {
+    position: absolute;
+    top: 55%;
+    left: 71%;
+    width: 24%;
+    height: 28%;
+    border: 5px solid #336699;
+}
+
+#start {
+    float: left;
+}
+
+.button {
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    width: 112px;
+    height: 34px;
+    font-size: 14px;
+    line-height: 34px;
+    background: #2e99e6;
+    color: #fff;
+    letter-spacing: 1px;
+    border-radius: 4px;
+}
+
+#content {
+    display: none;
+}
+
+#content #imgArea {
+    width: 509px;
+    height: 509px;
+    position: relative;
+    top: 20px;
+    left: 50px;
+}
+
+#imgArea div {
+    float: left;
+    border: 1px solid red;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 5;
+    box-shadow: 0px 0px 15px #fff;
+}
+
+#imgArea div.hover {
+    filter: alpha(opacity=80);
+    opacity: .8;
+    box-shadow: 0px 0px 8px #000;
+    z-index: 20;
+    *border: 1px solid #09F;
+}
+

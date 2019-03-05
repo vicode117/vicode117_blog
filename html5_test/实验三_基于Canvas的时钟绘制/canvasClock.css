@@ -1,0 +1,21 @@
+#clock {
+    width: 500px;
+    border: 5px solid black;
+    border-radius: 10%;
+    box-shadow: 10px 10px 5px #888888;
+ 
+    background: linear-gradient(315deg, transparent 75%, #d45d55 0)-10px 0,
+    linear-gradient(45deg, transparent 75%, #d45d55 0)-10px 0,
+    linear-gradient(135deg, #a7332b 50%, transparent 0) 0 0,
+    linear-gradient(45deg, #6a201b 50%, #561a16 0) 0 0 #561a16;
+    background-size: 20px 20px;
+}
+
+#time {
+    margin: 0 auto;
+    width: 250px;
+    text-align: center;
+    border: 1px solid rgb(133, 97, 46);    
+    border-radius: 4%;
+    background-color: rgb(198, 145, 69);
+}

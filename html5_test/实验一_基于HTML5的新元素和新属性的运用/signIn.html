@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>论坛</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <h2>用户登录</h2>
+    <form>
+        用户名：<input type="text" id="username"> <br>
+        密&emsp;码：<input type="text" id="psd"> <br>
+
+        <input class="button" type="button" value="登录" onclick="show()"> 
+        <input class="button" type="button" value="去注册" onclick="turn()">
+    </form>
+  
+    <script>
+        function show(){
+        alert("用户名：" + document.getElementById("username").value +
+            "\n密码：" + document.getElementById("psd").value);
+        }
+
+        function turn() {
+            window.open("signUp.html");
+        }
+    </script>
+
+</body>
+</html>

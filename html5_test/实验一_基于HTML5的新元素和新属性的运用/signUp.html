@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 用户注册</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <h1><a href="signIn.html">xx论坛</a></h1>
+    
+    <p>用户注册<span class="txt-tips">(带星号为必填项)</span></p> 
+    <hr>
+    <form>
+        <dl>
+                <dt>
+                    <span class="mark">*</span><span class="menu">昵&emsp;&emsp;称</span>&emsp;
+                    <input type="text" id="username" name="username">
+                </dt>
+                <dd>
+                    <div class="tips">
+                    <span class="txt-tips">6~16个字符，可使用汉字、字母、数字、下划线</span>
+                    </div>
+                </dd>
+        </dl>
+
+        <dl>
+                <dt>
+                    <span class="mark">*</span><span class="menu">邮箱地址</span>&emsp;
+                    <input type="text" id="email">
+                    <strong>@</strong>
+                    <select tabindex="-1" id="emailDomain">
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="qq.com">qq.com</option>
+                        <option value="yeah.net">yeah.net</option>
+                        <option value="126.com">126.com</option>
+                        <option value="163.com">163.com</option>
+                    </select>  
+                </dt>
+                <dd>
+                    
+                    <div class="tips">
+                        <span class="txt-tips">6~18个字符，可使用字母、数字、下划线，需以字母开头</span>
+                    </div>
+                </dd>
+        </dl>
+
+        <dl>
+                <dt>
+                    <span class="mark">*</span><span class="menu">密&emsp;&emsp;码</span>&emsp;
+                    <input type="password" id="psd"  minlength="6"  maxlength="16"> 
+                </dt>
+                <dd>
+                    <div class="tips">
+                        <span class="txt-tips">6~16个字符,区分大小写</span>
+                    </div>
+                </dd>
+        </dl>
+
+        <dl>
+                <dt>
+                    <span class="mark">*</span><span class="menu">确认密码</span>&emsp;
+                    <input type="password" id="realPsd"> 
+                </dt>
+                <dd>
+                    <div class="tips">
+                        <span class="txt-tips">请再次填写密码</span>
+                    </div>
+                </dd>
+        </dl>
+
+        &ensp;<span class="menu">性&emsp;&emsp;别</span>&emsp;
+        <input type="radio" name="sex" value="男" checked="checked">男
+        <input type="radio" name="sex" value="女">女 
+        <input type="radio" name="sex" value="保密">保密<br>
+            
+        <dl>
+                <dt>
+                    &ensp;<span class="menu">手&ensp;机&ensp;号</span>&emsp;
+                    <input type="text" id="phoneNumber"> 
+                </dt>
+                <dd>
+                    <div class="tips">
+                        <span class="txt-tips">忘记密码时，可以通过该手机号快速找回密码</span>
+                        
+                    </div>
+                </dd>
+        </dl>
+
+        
+
+        &ensp;<span class="menu">爱&emsp;&emsp;好</span>&emsp;
+        <input type="checkbox" name="like" value="编程">编程
+        <input type="checkbox" name="like" value="体育">体育
+        <input type="checkbox" name="like" value="音乐">音乐
+        <input type="checkbox" name="like" value="其它">其它    <br>
+        
+        <input class="button" type="button" value="注册" onclick="show()">
+        <input class="button" type="reset" value="重新输入" onclick="reset()">
+        
+    </form>
+
+    <hr>
+    
+
+    <script>
+        function GetRadioValue(RadioName){
+            let obj;
+            obj = document.getElementsByName(RadioName);
+            if(obj != null) {
+                for( let i = 0; i< obj.length; i++){
+                    if(obj[i].checked){
+                        return obj[i].value;
+                    }
+                }
+            }
+            return null;
+        }
+
+        function GetCheckBoxValue(CheckBoxName){
+            let str = "";
+            let obj = document.getElementsByName(CheckBoxName);
+            if(obj != null){
+                for(let i=0;i<obj.length;i++){
+                    if(obj[i].checked){
+                        str += obj[i].value+ ","; //逗号分隔
+                    }
+                }
+            }
+            if(str.length > 0){
+                str = str.substring(0, str.length-1);
+                //去掉最后一个逗号
+            }
+            return str;
+        }
+
+        //多选列表框
+        function GetMultiSelectValue(selectId) {
+            let str="";
+            let obj = document.getElementById(selectId);
+            if(obj!=null){
+                for(let i=0;i<obj.length;i++){
+                    if(obj.options[i].selected){
+                        str += obj.options[i].value+",";
+                    }
+                }
+            }
+            if(str.length>0){
+                str = str.substring(0, str.length-1);
+            }
+            return str;
+        }
+
+    function show(){
+        alert("姓名：" + document.getElementById("username").value +
+            "\n邮箱地址：" + document.getElementById("email").value +"@"+GetMultiSelectValue("emailDomain")+
+            "\n密码：" + document.getElementById("psd").value + 
+            "\n手机号：" + document.getElementById("phoneNumber").value + 
+            "\n性别：" + GetRadioValue("sex") +
+            "\n爱好：" + GetCheckBoxValue("like"));
+    }  
+    
+    function reset() {
+        window.open("signUp");
+    }
+    </script>
+</body>
+</html>

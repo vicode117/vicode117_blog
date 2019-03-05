@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实验二：多媒体播放器</title>
+    <link rel="stylesheet" href="player.css">
+    <script src="player.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>ViPlayer</h1>
+        <p class="introduce">一个简易的多媒体播放器</p>
+    </header>
+            
+    <!--<video>和<audio>的共同属性：src、controls、preload、autoplay、loop；
+    <video>还有3个独有的属性：height、width、poster
+    -->
+    <div id="player">
+    <audio id="audio1" onprogress="progressUpdate()" ontimeupdate="progressUpdate()" >
+        <source src="沧海一声笑.mp3" type="audio/mp3">
+        <source src="沧海一声笑.ogg" type="audio/ogg">
+    </audio>
+    <video id="video1" width="800" height="400" poster="Steve-Jobs-Steve-Wozniak.jpg"
+           onprogress="progressUpdate()" ontimeupdate="progressUpdate()">
+        <source src="Apple_Think Different.mp4" type="video/mp4">
+        <source src="Apple_Think Different.ogv" type="video/ogv">
+        <source src="Apple_Think Different.webm" type="video/webm">
+
+        <!--备用 Flash-->
+        <object id="flowplayer" width="800" height="600" data="flowplayer-3.2.16.swf"
+            type="application/x-shockwave-flash">
+            <param name="movie" value="flowplayer-3,2,16.swf">
+            <param name="flashvars" value='config={"clip":"beach.mp4"}'>
+        </object>
+            
+        <p>无法播放该视频</p>
+    </video>
+
+    <!--播放及缓冲条-->
+    <div id="durationBar">
+        <div id="downloadBar">
+        <div id="positionBar"><span id="displayStatus"></span></div>
+        </div>
+    </div>
+
+    <button id="forward" onclick="forward()">+10s</button>
+    <button id="play" onclick="play()">播放</button>
+    <button id="pause" onclick="pause()">暂停</button>
+    <button id="stop" onclick="stop()">停止</button> 
+    <button id="backward" onclick="backward()">-10s</button> <br>
+    <button id="speedUp" onclick="speedUp()">2倍速播放</button>
+    <button id="speedUp" onclick="normalSpeed()">正常速播放</button>
+    <button id="slowDown" onclick="slowDown()">0.5倍速播放</button>
+
+    
+
+    <div id="box">
+        <div id="box1">
+            <span id="span1"></span>
+        </div>
+        <p id="p1"></p>
+    </div>
+    
+    <p>播放列表</p>
+    <button class="list" onclick="isFirst()">Apple_ThinkDifferent(mp4)</button>
+    <button class="list" onclick="isSecond()"> 沧海一声笑（mp3) </button>
+            
+    </div>
+
+    <script type="text/javascript">
+        //音量条
+        var video1 = document.getElementById("video1");
+        var audio1 = document.getElementById("audio1");
+        video1.volume = 0.75;
+        audio1.volume = 0.75;
+        var Span =document.getElementById("span1");
+        var Box =document.getElementById("box");
+        var Box1 =document.getElementById("box1");
+        var P1 =document.getElementById("p1");
+        Span.style.left="75px";
+        P1.innerHTML="音量："+Math.floor(Span.offsetLeft);
+        Box1.style.width=Span.offsetLeft+"px";
+        Span.onmousedown=function(e){
+            var evt =e||event;
+            var x =evt.offsetX;
+            var y =evt.offsetY;
+            //console.log(x)
+            //console.log("Aa")
+            Box.onmousemove=function(e){
+                var evt =e||event;
+                Span.style.left=evt.clientX-Box.offsetLeft-x+"px";
+                if(evt.clientX-Box.offsetLeft-x<=0){
+                    Span.style.left="0px";
+                }
+                if(evt.clientX-Box.offsetLeft-x>=100){
+                    Span.style.left="100px";
+                }
+                //console.log(Span.offsetLeft);
+                P1.innerHTML="音量："+Math.floor(Span.offsetLeft);
+                Box1.style.width=Span.offsetLeft+"px";
+                video1.volume = Math.floor(Span.offsetLeft)/100;
+                audio1.volume = Math.floor(Span.offsetLeft)/100;
+                
+            }
+            document.onmouseup=function(){
+                //Box1.style.width=evt.offsetX+"px";
+                Box.onmousemove=null;
+            }
+        }
+    </script>
+</body>
+</html>

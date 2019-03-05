@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实验四：拼图游戏</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/puzzleGame.js"></script>
+</head>
+<body>
+   
+    <header>
+        <a href="https://vicode117.netlify.com"><h1>拼图游戏</h1></a>
+        <p id="introduce">从下面的的六幅图选一幅，开启拼图游戏。</p>
+    </header>
+
+
+    <div id="img_a" class="imgSet" onclick="puzzleA()">
+        <img src="images/a.jpg">
+    </div>
+    <div id="img_b" class="imgSet" onclick="puzzleB()">
+        <img src="images/b.jpg">
+    </div>
+    <div id="img_c" class="imgSet"  onclick="puzzleC()">
+        <img src="images/c.jpg">
+    </div>
+    <div id="img_d" class="imgSet" onclick="puzzleD()">
+        <img src="images/d.jpg">
+    </div>
+    <div id="img_e" class="imgSet" onclick="puzzleE()">
+        <img src="images/e.jpg">
+    </div>
+    <div id="img_f" class="imgSet" onclick="puzzleF()">
+        <img src="images/f.jpg">
+    </div>
+
+
+    <div id="content">
+        <ul>
+            <li id="start"> <span><button class="button">开始游戏</button></span> </li>
+            <li id="return"> <span><button class="button" onclick="returnPic()">返回选图</button></span> </li>
+            <li id="level">
+                <span><button class="button">难度选择:</button>
+                    <select class="target">
+                        <option value='{"row":3,"col":3}' selected="selected">3 * 3</option>
+                        <option value='{"row":6,"col":6}'>6 * 6</option>
+                        <option value='{"row":9,"col":9}'>9 * 9</option>
+                    </select>
+                </span>
+            </li>
+        </ul>
+
+
+        <div id="imgArea"></div>
+    </div>
+
+<script type="text/javascript">
+
+    // $(function() {
+    // });
+
+</script>
+</body>
+</html>

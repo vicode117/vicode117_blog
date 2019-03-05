@@ -1,0 +1,27 @@
+* {
+  padding: 0px;
+  margin: 0px
+}
+
+
+
+
+
+
+.button {
+  padding: 10px;
+  margin: 5px;
+  border: 10px;
+  border-radius: 20%;
+  background: darkgray;
+}
+
+.mark {
+  color: red;
+}
+
+.txt-tips {
+  color:grey;
+  font-size: 50%;
+}
+

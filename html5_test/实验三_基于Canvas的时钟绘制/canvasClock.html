@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>实验三：canvas绘制时钟</title>
+    <link rel="stylesheet" href="canvasClock.css">
+</head>
+<body>
+    <div id="clock">
+    <canvas id="graph" width="500" height="480">
+        <p>该浏览器不支持canvas</p>
+    </canvas>
+
+    <div id="time"></div>
+    </div>
+
+
+    <script type="text/javascript">
+        // 当前时间
+        let timeNow = setInterval(getNowFormatDate, 1000);   
+        function getNowFormatDate() {
+            let date = new Date();
+            let month = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth()+1):(date.getMonth()+1);
+            let year = date.getFullYear();
+            let day = date.getDate() < 10 ? '0' + date.getDate():date.getDate();
+            let hour = date.getHours() < 10 ? '0' + date.getHours():date.getHours();
+            let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes():date.getMinutes();
+            let second = date.getSeconds() < 10 ? '0' + date.getSeconds():date.getSeconds();
+            
+            let timeNow = year + '年' + month + '月' + day + '日' + hour + ':' + minutes + ':' + second;
+            
+            document.getElementById("time").innerHTML = timeNow;
+        }
+
+
+
+        //绘制时钟
+        let canvas = document.getElementById('graph');
+        let context = canvas.getContext('2d');
+        let r = canvas.width/2.5; //半径
+        //将坐标中心作为起点
+        context.translate(canvas.width/2, canvas.height/2);
+
+        function drawCircle() {
+            context.beginPath();
+            context.arc(0, 0, r, 0, Math.PI*2, true);
+            context.closePath();
+
+            context.fillStyle = "white";
+            context.fill();
+
+            context.lineWidth = 5;
+            context.strokeStyle = 'rgb(0, 0, 0)';
+            context.stroke();
+        }
+
+        function drawClockScale() {
+            let radian = 0, angle, font, fontX, fontY;
+            context.fillStyle = 'rgb(212, 0, 0)';
+            
+            // 绘制表盘时刻度
+            for(let i=0; i<12; i++){
+                context.save();
+                // 弧度制，大刻度，总共分为12刻度,每刻度为:2π/12 -> π/6
+                radian = i * Math.PI/6; 
+                // 旋转画布绘制刻度
+                context.rotate(radian);
+                context.fillRect(r-10, 0, 10, 5);
+                context.restore();
+            }
+            // 绘制表盘分刻度
+            for(let i=0; i< 60; i++) {
+                // 记录旋转画布之前初始状态
+                context.save();
+                radian = i*Math.PI/30;
+                // 旋转画布绘制刻度
+                context.rotate(radian);
+                // 绘制
+                context.fillRect(r-10, 0, 5, 2);
+                //  恢复初始状态，为旋转前
+                context.restore();
+            }
+
+            // 绘制表盘文字
+            for(let i=0; i<12; i++) {
+                angle = i * 30;
+                // 转换为弧度制，Math.sin、 Math.cos都接受弧度制单位
+                angle = angle*Math.PI/180;
+                font = (i+3>12) ? i+3-12 : i+3;
+                fontX = Math.round(Math.cos(angle)*(r-30));
+                fontY = Math.round(Math.sin(angle)*(r-30));
+                context.font = 'bold 14px 微软雅黑';
+                context.fillText(font+'', fontX, fontY);
+            }
+        }
+
+        function drawHand(rotate, width, height) {
+            context.save();
+            rotate = rotate*Math.PI/180
+            context.rotate(rotate);
+            context.fillRect(-10, 0, width, height);
+            context.restore();
+        }
+
+        function setTime() {
+            let hour = new Date().getHours();
+            let minute = new Date().getMinutes();
+            let second = new Date().getSeconds();
+
+            let hourRotate, minRotate, secRotate;
+            // 计算秒针角度并绘制图形
+            secRotate = second*6 - 90;
+            drawHand(secRotate, r-30, 2);
+            // 计算分针角度并绘制图形
+            minRotate = (minute*60+second)*0.1 - 90;
+            drawHand(minRotate, r-50, 4);
+            // 计算始终角度并绘制图形
+            hourRotate = (hour*60*60 + minute*60 + second)/120 - 90;
+            drawHand(hourRotate, r-70, 5);
+        }
+
+        setInterval(function(){
+            context.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+            drawCircle();
+            drawClockScale();
+            setTime();
+        }, 1000);
+    </script>
+</body>
+</html>
