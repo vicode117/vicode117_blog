@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./card.css">
+    <title>Motehr's day Card</title>
+</head>
+
+<body>
+    <div id="card">
+        <div id="card-inside">
+            <div class="wrap">
+                <a href="#2" id="1">
+                    <h3>妈, 母亲节快乐， 我给你买了一点礼物</h3><img></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#3" id="2">
+                    <h3>手持支架小风扇(还能当手机支架用)</h3><img src=""></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#4" id="3">
+                    <h3></h3><img
+                        src="https://app.yinxiang.com/files/common-services/binary-datas/c2VydmljZVR5cGU9MiZzZXJ2aWNlRGF0YT17Im5vdGVHdWlkIjoiNWE1YTljNGEtMjAyNS00NGVkLWI1NDktYWIxMGJlNjQ4NWE0IiwicmVzb3VyY0d1aWQiOiIxYmM1NDBkNi0zN2Y5LTQ0ZTAtOWU1MS0xODZhYTM3ZTBmNzQifQ=="
+                        height="50%"></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#5" id="4">
+                    <h3>挂脖风扇2个，哈哈哈(你和俺爸一人一个)</h3><img></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#6" id="5">
+                    <h3></h3><img
+                        src="https://app.yinxiang.com/files/common-services/binary-datas/c2VydmljZVR5cGU9MiZzZXJ2aWNlRGF0YT17Im5vdGVHdWlkIjoiNWE1YTljNGEtMjAyNS00NGVkLWI1NDktYWIxMGJlNjQ4NWE0IiwicmVzb3VyY0d1aWQiOiI5ZWZiYjdmYi04ZmRjLTRmOTAtOTVkOC1iNzE4YzU2ZTI0YzcifQ=="
+                        height="50%"></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#7" id="6">
+                    <h3>小米电视1台(既是电视也用作显示器)</h3><img></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#8" id="7">
+                    <h3></h3><img
+                        src="https://app.yinxiang.com/files/common-services/binary-datas/c2VydmljZVR5cGU9MiZzZXJ2aWNlRGF0YT17Im5vdGVHdWlkIjoiNWE1YTljNGEtMjAyNS00NGVkLWI1NDktYWIxMGJlNjQ4NWE0IiwicmVzb3VyY0d1aWQiOiI0NzhlZWY0MC1mNDNjLTQ4ZGEtOTRkZS04ZDYxOGU5N2NmOTkifQ=="
+                        height="40%"></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#9" id="8">
+                    <h3>希望你每天开心</h3><img src=""></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#10" id="9">
+                    <h3></h3><img
+                        src="https://app.yinxiang.com/files/common-services/binary-datas/c2VydmljZVR5cGU9MiZzZXJ2aWNlRGF0YT17Im5vdGVHdWlkIjoiNWE1YTljNGEtMjAyNS00NGVkLWI1NDktYWIxMGJlNjQ4NWE0IiwicmVzb3VyY0d1aWQiOiJiY2U0MzQzMC1lZTgwLTQzZTUtYTAzZi0wYTlkM2MxZDdkMTgifQ=="
+                        height="50%"></img>
+                </a>
+            </div>
+
+            <div class="wrap">
+                <a href="#1" id="10">
+                    <h1>母亲节快乐!</h1>
+                </a>
+            </div>
+
+            <!--<button id="close">&lt;</button>-->
+        </div>
+
+        <div id="card-front">
+            <div class="wrap">
+                <h1>母亲节快乐!</h1>
+                <h3 class="tagRight">给世界上最好的妈妈<i>!</i></h3>
+            </div>
+            <button id="open">&gt;</button>
+        </div>
+    </div>
+
+
+    <script>
+        // 
+        (function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            var card = $('card'),
+                openB = $('card-front'),
+                closeB = $('10'),
+                timer = null;
+            console.log('wat', card);
+            openB.addEventListener('click', function () {
+                card.setAttribute('class', 'open-half');
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(function () {
+                    card.setAttribute('class', 'open-fully');
+                    timer = null;
+                }, 1000);
+            });
+
+            closeB.addEventListener('click', function () {
+                card.setAttribute('class', 'close-half');
+                if (timer) clearTimerout(timer);
+                timer = setTimeout(function () {
+                    card.setAttribute('class', '');
+                    timer = null;
+                }, 100);
+            });
+
+        }());
+    </script>
+</body>
+
+</html>
